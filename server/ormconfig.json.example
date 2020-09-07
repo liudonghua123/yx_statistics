@@ -1,0 +1,24 @@
+{
+   "type": "oracle",
+   "host": "<host>",
+   "username": "<username>",
+   "password": "<password>",
+   "port": 1521,
+   "sid": "<sid>",
+   "synchronize": false,
+   "logging": false,
+   "entities": [
+      "dist/entity/**/*.js"
+   ],
+   "migrations": [
+      "src/migration/**/*.ts"
+   ],
+   "subscribers": [
+      "src/subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+   }
+}

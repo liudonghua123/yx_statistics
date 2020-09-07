@@ -1,0 +1,127 @@
+type Query {
+  """
+  获取本科、研究生、博士的基本统计信息
+  2020级的本科、研究生、博士批次id是
+  本科: AB7B3D674EC941E0E053820D377104E1
+  研究生: AB7B3D674F5A41E0E053820D377104E1
+  博士生: AB7B3D674FE641E0E053820D377104E1
+  """
+  getStatistics(pczjs: [String]): [Statistics]
+  "通过批次获取本科或研究生或博士的，按部门汇总的统计详细信息"
+  getStatisticsDetailsByDW(pczj: String): [StatisticsDetails]
+  "通过批次获取本科或研究生或博士的，按专业汇总的统计详细信息"
+  getStatisticsDetailsByZY(pczj: String): [StatisticsDetails]
+}
+
+"""
+统计信息，本科或研究生或博士生的基本统计信息
+"""
+type Statistics {
+  "总人数"
+  total: Int
+  "已报到人数"
+  reportedCount: Int
+  "未报到人数"
+  notReportedCount: Int
+  "报道中人数"
+  reportingCount: Int
+}
+
+"""
+统计信息详情，通常是本科或研究生或博士生，按部门或者专业
+"""
+type StatisticsDetails {
+  "总人数"
+  total: Int
+  "已报到人数"
+  reportedCount: Int
+  "未报到人数"
+  notReportedCount: Int
+  "报道中人数"
+  reportingCount: Int
+  "单位信息"
+  dw: DWInfo
+  "专业信息"
+  zy: ZYInfo
+  "报道学生信息"
+  xsxx: [XSXXInfo]
+  "环节信息"
+  hj: [HJInfo]
+  "批次主键"
+  pczj: String
+  "单位代码"
+  dwdm: String
+  "专业代码"
+  zydm: String
+}
+
+"""
+报道学生信息
+"""
+type XSXXInfo {
+  "学号"
+  xszj: String
+  "姓名"
+  xm: String
+  "身份证"
+  sfzh: String
+  "批次主键"
+  pczj: String
+  "单位代码"
+  dwdm: String
+  "专业代码"
+  zydm: String
+  "单位信息"
+  dw: DWInfo
+  "专业信息"
+  zy: ZYInfo
+}
+
+"""
+单位信息
+"""
+type DWInfo {
+  "单位代码"
+  dwdm: String
+  "单位名称"
+  dwmc: String
+}
+
+"""
+专业信息
+"""
+type ZYInfo {
+  "专业代码"
+  zydm: String
+  "专业名称"
+  zymc: String
+}
+
+"""
+迎新环节信息
+环节状态： np	可办理 na	无需办理 p 办理通过 r	办理不通过
+"""
+type HJInfo {
+  "学号"
+  xszj: String
+  "学院报到"
+  hj1: String
+  "关系转移"
+  hj2: String
+  "兵役登记"
+  hj3: String
+  "绿色通道"
+  hj4: String
+  "缴费"
+  hj5: String
+  "绿色通道审核"
+  hj6: String
+  "领取住宿登记卡"
+  hj7: String
+  "户口转移"
+  hj8: String
+  "学院补助"
+  hj9: String
+  "环节最终状态  np未办理 p办理通过 r办理中"
+  hjzzzt: String
+}
