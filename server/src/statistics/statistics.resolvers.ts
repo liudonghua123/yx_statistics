@@ -19,6 +19,14 @@ export class StatisticsResolver {
   async getStatistics(@Args('pczjs') pczjs: [string]) {
     return this.statisticsService.getStatistics(pczjs);
   }
+}
+
+
+@Resolver('StatisticsDetails')
+export class StatisticsDetailsResolver {
+  constructor(
+    private statisticsService: StatisticsService
+  ) { }
 
   @Query()
   async getStatisticsDetailsByDW(@Args('pczj') pczj: string) {
@@ -29,14 +37,16 @@ export class StatisticsResolver {
   async getStatisticsDetailsByZY(@Args('pczj') pczj: string) {
     return this.statisticsService.getStatisticsDetailsByZY(pczj);
   }
-}
 
+  @Query()
+  async getStatisticsDetailsBySingleDW(@Args('pczj') pczj: string, @Args('dwdm') dwdm: string) {
+    return this.statisticsService.getStatisticsDetailsBySingleDW(pczj, dwdm);
+  }
 
-@Resolver('StatisticsDetails')
-export class StatisticsDetailsResolver {
-  constructor(
-    private statisticsService: StatisticsService
-  ) { }
+  @Query()
+  async getStatisticsDetailsBySingleZY(@Args('pczj') pczj: string, @Args('zydm') zydm: string) {
+    return this.statisticsService.getStatisticsDetailsBySingleZY(pczj, zydm);
+  }
 
   @ResolveField()
   async dw(@Parent() statisticsDetails: StatisticsDetails) {
@@ -50,12 +60,12 @@ export class StatisticsDetailsResolver {
 
   @ResolveField()
   async xsxx(@Parent() statisticsDetails: StatisticsDetails) {
-    return this.statisticsService.findXSXXInfo(statisticsDetails.pczj);
+    return this.statisticsService.findXSXXInfo(statisticsDetails.pczj, statisticsDetails.dwdm, statisticsDetails.zydm);
   }
 
   @ResolveField()
   async hj(@Parent() statisticsDetails: StatisticsDetails) {
-    return this.statisticsService.findHJInfo(statisticsDetails.pczj);
+    return this.statisticsService.findHJInfo(statisticsDetails.pczj, statisticsDetails.dwdm, statisticsDetails.zydm);
   }
 }
 
@@ -74,9 +84,4 @@ export class XSXXInfoResolver {
   async zy(@Parent() xsxxInfo: XSXXInfo) {
     return this.statisticsService.findZYInfo(xsxxInfo.pczj, xsxxInfo.zydm);
   }
-
-  // @ResolveField()
-  // async hj(@Parent() xsxxInfo: XSXXInfo) {
-  //   return this.statisticsService.findHJInfo(xsxxInfo.xszj);
-  // }
 }

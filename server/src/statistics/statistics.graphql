@@ -11,6 +11,10 @@ type Query {
   getStatisticsDetailsByDW(pczj: String): [StatisticsDetails]
   "通过批次获取本科或研究生或博士的，按专业汇总的统计详细信息"
   getStatisticsDetailsByZY(pczj: String): [StatisticsDetails]
+  "通过批次获取本科或研究生或博士的，按部门汇总的统计详细信息"
+  getStatisticsDetailsBySingleDW(pczj: String, dwdm: String): StatisticsDetails
+  "通过批次获取本科或研究生或博士的，按专业汇总的统计详细信息"
+  getStatisticsDetailsBySingleZY(pczj: String, zydm: String): StatisticsDetails
 }
 
 """

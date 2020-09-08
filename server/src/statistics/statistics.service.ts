@@ -19,7 +19,7 @@ export class StatisticsService {
   private xsxxs: Map<string, XSXX[]>;
   private dws: Map<string, DW[]>;
   private zys: Map<string, BZKZY[]>;
-  
+
 
   async init(pczjs: string[] = defaultPczjs) {
     this.logger.log('do init')
@@ -132,6 +132,51 @@ export class StatisticsService {
     }
     return statisticsDetails;
   }
+
+  async getStatisticsDetailsBySingleZY(pczj: string, zydm: string) {
+    this.logger.log('do getStatisticsDetailsBySingleZY services')
+    const hjs = await HJ.find({ PCZJ: pczj })
+    const xszjs = hjs.map(item => item.XSZJ);
+    const reportedXszjs = hjs.filter(item => item.HJZZZT === 'p').map(item => item.XSZJ);
+    const notReportedXszjs = hjs.filter(item => item.HJZZZT === 'np').map(item => item.XSZJ);
+    const reportingXszjs = hjs.filter(item => item.HJZZZT === 'r').map(item => item.XSZJ);
+    const xsxxs = this.xsxxs.get(pczj).filter(item => xszjs.includes(item.XSZJ) && item.ZYDM === zydm)
+    const reportedXSXXs = xsxxs.filter(item => reportedXszjs.includes(item.XSZJ));
+    const notReportedXSXXs = xsxxs.filter(item => notReportedXszjs.includes(item.XSZJ));
+    const reportingXSXXs = xsxxs.filter(item => reportingXszjs.includes(item.XSZJ));
+    const zy = this.zys.get(pczj).filter(item => item.ZYDM === zydm)[0];
+    const sd = new StatisticsDetails();
+    sd.total = xsxxs.filter(item => item.ZYDM === zy.ZYDM).length
+    sd.reportedCount = reportedXSXXs.filter(item => item.ZYDM === zy.ZYDM).length
+    sd.notReportedCount = notReportedXSXXs.filter(item => item.ZYDM === zy.ZYDM).length
+    sd.reportingCount = reportingXSXXs.filter(item => item.ZYDM === zy.ZYDM).length
+    sd.pczj = pczj;
+    sd.zydm = zy.ZYDM
+    return sd;
+  }
+
+  async getStatisticsDetailsBySingleDW(pczj: string, dwdm: string) {
+    this.logger.log('do getStatisticsDetailsBySingleDW services')
+    const hjs = await HJ.find({ PCZJ: pczj })
+    const xszjs = hjs.map(item => item.XSZJ);
+    const reportedXszjs = hjs.filter(item => item.HJZZZT === 'p').map(item => item.XSZJ);
+    const notReportedXszjs = hjs.filter(item => item.HJZZZT === 'np').map(item => item.XSZJ);
+    const reportingXszjs = hjs.filter(item => item.HJZZZT === 'r').map(item => item.XSZJ);
+    const xsxxs = this.xsxxs.get(pczj).filter(item => xszjs.includes(item.XSZJ) && item.DWDM === dwdm)
+    const reportedXSXXs = xsxxs.filter(item => reportedXszjs.includes(item.XSZJ));
+    const notReportedXSXXs = xsxxs.filter(item => notReportedXszjs.includes(item.XSZJ));
+    const reportingXSXXs = xsxxs.filter(item => reportingXszjs.includes(item.XSZJ));
+    const dw = this.zys.get(pczj).filter(item => item.DWDM === dwdm)[0];
+    const sd = new StatisticsDetails();
+    sd.total = xsxxs.filter(item => item.DWDM === dw.DWDM).length
+    sd.reportedCount = reportedXSXXs.filter(item => item.DWDM === dw.DWDM).length
+    sd.notReportedCount = notReportedXSXXs.filter(item => item.DWDM === dw.DWDM).length
+    sd.reportingCount = reportingXSXXs.filter(item => item.DWDM === dw.DWDM).length
+    sd.pczj = pczj;
+    sd.dwdm = dw.DWDM
+    return sd;
+  }
+
   async findDWInfo(pczj: string, dwdm: string) {
     if (dwdm === null) {
       return null
@@ -142,6 +187,7 @@ export class StatisticsService {
     dwInfo.dwmc = dw.DWBZMC
     return dwInfo;
   }
+
   async findZYInfo(pczj: string, zydm: string) {
     if (zydm === null) {
       return null
@@ -153,8 +199,14 @@ export class StatisticsService {
     return zyInfo;
   }
 
-  async findXSXXInfo(pczj: string) {
-    const xsxxs = this.xsxxs.get(pczj)
+  async findXSXXInfo(pczj: string, dwdm: string, zydm: string) {
+    let xsxxs = this.xsxxs.get(pczj)
+    if (dwdm != null) {
+      xsxxs = xsxxs.filter(item => item.DWDM === dwdm);
+    }
+    else if (zydm != null) {
+      xsxxs = xsxxs.filter(item => item.ZYDM === zydm);
+    }
     const xsxxInfos = xsxxs.map(item => {
       const xsxxInfo = new XSXXInfo()
       xsxxInfo.xszj = item.XSZJ
@@ -168,8 +220,16 @@ export class StatisticsService {
     return xsxxInfos
   }
 
-  async findHJInfo(pczj: string) {
-    const hjs = await this.hjRepository.find({ PCZJ: pczj })
+  async findHJInfo(pczj: string, dwdm: string, zydm: string) {
+    let hjs = await this.hjRepository.find({ PCZJ: pczj })
+    if (dwdm != null) {
+      const xszjs = this.xsxxs.get(pczj).filter(item => item.DWDM === dwdm).map(item => item.XSZJ);
+      hjs = hjs.filter(item => xszjs.includes(item.XSZJ));
+    }
+    else if (zydm != null) {
+      const xszjs = this.xsxxs.get(pczj).filter(item => item.ZYDM === zydm).map(item => item.XSZJ);
+      hjs = hjs.filter(item => xszjs.includes(item.XSZJ));
+    }
     const hjInfos = hjs.map(hj => {
       const hjInfo = new HJInfo()
       hjInfo.xszj = hj.XSZJ

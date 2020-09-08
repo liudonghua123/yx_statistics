@@ -12,6 +12,10 @@ export abstract class IQuery {
     abstract getStatisticsDetailsByDW(pczj?: string): StatisticsDetails[] | Promise<StatisticsDetails[]>;
 
     abstract getStatisticsDetailsByZY(pczj?: string): StatisticsDetails[] | Promise<StatisticsDetails[]>;
+
+    abstract getStatisticsDetailsBySingleDW(pczj?: string, dwdm?: string): StatisticsDetails | Promise<StatisticsDetails>;
+
+    abstract getStatisticsDetailsBySingleZY(pczj?: string, zydm?: string): StatisticsDetails | Promise<StatisticsDetails>;
 }
 
 export class Statistics {
