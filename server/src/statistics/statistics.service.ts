@@ -92,7 +92,9 @@ export class StatisticsService {
     const reportedXSXXs = xsxxs.filter(item => reportedXszjs.includes(item.XSZJ));
     const notReportedXSXXs = xsxxs.filter(item => notReportedXszjs.includes(item.XSZJ));
     const reportingXSXXs = xsxxs.filter(item => reportingXszjs.includes(item.XSZJ));
-    const dws = this.dws.get(pczj)
+    let dws = this.dws.get(pczj)
+    const xsxxsDwdms = xsxxs.map(item => item.DWDM)
+    dws = dws.filter(item => xsxxsDwdms.includes(item.DWDM));
     const statisticsDetails: StatisticsDetails[] = [];
     for (const dw of dws) {
       const sd = new StatisticsDetails();
@@ -118,7 +120,9 @@ export class StatisticsService {
     const reportedXSXXs = xsxxs.filter(item => reportedXszjs.includes(item.XSZJ));
     const notReportedXSXXs = xsxxs.filter(item => notReportedXszjs.includes(item.XSZJ));
     const reportingXSXXs = xsxxs.filter(item => reportingXszjs.includes(item.XSZJ));
-    const zys = this.zys.get(pczj)
+    let zys = this.zys.get(pczj)
+    const xsxxsZydms = xsxxs.map(item => item.ZYDM)
+    zys = zys.filter(item => xsxxsZydms.includes(item.ZYDM));
     const statisticsDetails: StatisticsDetails[] = [];
     for (const zy of zys) {
       const sd = new StatisticsDetails();
