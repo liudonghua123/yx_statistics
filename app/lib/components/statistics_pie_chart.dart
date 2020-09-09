@@ -57,7 +57,7 @@ class _StatisticsPieChartState extends State<StatisticsPieChart> {
   @override
   Widget build(BuildContext context) {
     return AspectRatio(
-      aspectRatio: 1.8,
+      aspectRatio: 1.5,
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
