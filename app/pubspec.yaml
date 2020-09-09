@@ -77,6 +77,7 @@ flutter:
   # https://flutter.dev/docs/development/ui/assets-and-images#specifying-assets
   assets:
     - assets/
+    - assets/fonts/
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
@@ -107,3 +108,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: FZLanTingYuan
+      fonts:
+        - asset: assets/fonts/FZLanTYJW_Xian.ttf
+    - family: romantic_garden
+      fonts:
+        - asset: assets/fonts/romantic_garden.ttf

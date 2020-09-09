@@ -9,3 +9,6 @@ const defaultPczjs = [
 ];
 
 const defaultTitleTextStyle = TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
+
+const defaultDropDownTitleTextStyle = TextStyle(fontSize: 20, color: Colors.black45);
+

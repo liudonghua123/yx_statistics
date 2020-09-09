@@ -68,6 +68,7 @@ class _HomePageState extends State<HomePage> {
                                   }));
                                 },
                                 child: Column(
+                                  mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
@@ -87,7 +88,7 @@ class _HomePageState extends State<HomePage> {
                                       style: contentTextStyle,
                                     ),
                                     Text(
-                                      '报到率: ${(item.reportedCount * 100 / item.total).toStringAsFixed(2)}%',
+                                      '报到率: ${(item.reportedCount / item.total * 100).toStringAsFixed(2)}%',
                                       style: contentTextStyle,
                                     ),
                                   ],

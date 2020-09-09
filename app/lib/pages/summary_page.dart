@@ -92,26 +92,30 @@ class _SummaryPageState extends State<SummaryPage> {
           var item = entry.value as GetStatisticsDetailsByDW$Query$StatisticsDetails;
           return Card(
             elevation: 5,
-            child: Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Stack(
-                alignment: Alignment.bottomLeft,
-                children: [
-                  progressIndicator(item),
-                  ListTile(
-                    title: Text(
-                      item.dw.dwmc,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    subtitle: getSubTitle(item),
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) {
-                        return DetailsPage(pczj: pczj, dwdm: item.dwdm);
-                      }));
-                    },
+            child: Stack(
+              alignment: Alignment.bottomLeft,
+              children: [
+                progressIndicator(item),
+                ListTile(
+                  title: Text(
+                    item.dw.dwmc,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                ],
-              ),
+                  subtitle: getSubTitle(item),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return DetailsPage(pczj: pczj, dwdm: item.dwdm);
+                    }));
+                  },
+                  trailing: Icon(Icons.arrow_right),
+                  leading: CircleAvatar(
+                    child: Text(
+                      '${(item.reportedCount / item.total * 100).toStringAsFixed(0)}%',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ),
+                ),
+              ],
             ),
           );
         }).toList();
@@ -122,23 +126,32 @@ class _SummaryPageState extends State<SummaryPage> {
         mainContent = filteredStatisticsDetails.asMap().entries.map((entry) {
           var index = entry.key;
           var item = entry.value as GetStatisticsDetailsByZY$Query$StatisticsDetails;
-          return Stack(
-            children: [
-              progressIndicator(item),
-              ListTile(
-                title: Text(
-                  item.zy.zymc,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                subtitle: getSubTitle(item),
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return DetailsPage(pczj: pczj, zydm: item.zydm);
-                  }));
-                },
-                trailing: Icon(Icons.arrow_right),
-              )
-            ],
+          return Card(
+            elevation: 5,
+            child: Stack(
+              children: [
+                progressIndicator(item),
+                ListTile(
+                  title: Text(
+                    item.zy.zymc,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  subtitle: getSubTitle(item),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return DetailsPage(pczj: pczj, zydm: item.zydm);
+                    }));
+                  },
+                  trailing: Icon(Icons.arrow_right),
+                  leading: CircleAvatar(
+                    child: Text(
+                      '${(item.reportedCount / item.total * 100).toStringAsFixed(0)}%',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  ),
+                )
+              ],
+            ),
           );
         }).toList();
       }
@@ -171,14 +184,12 @@ class _SummaryPageState extends State<SummaryPage> {
                             dropdownMenuValue = value;
                             initData();
                           },
-                          style: defaultTitleTextStyle,
+                          style: defaultDropDownTitleTextStyle,
                         ),
                         SizedBox(width: 2 * DEFAULT_MARGIN),
                         Expanded(
                           child: TextField(
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.search),
-                            ),
+                            decoration: InputDecoration(prefixIcon: Icon(Icons.search), hintText: '请输入学院或单位关键词搜索'),
                             onChanged: (text) {
                               setState(() {
                                 filterText = text.trim();

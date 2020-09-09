@@ -59,7 +59,7 @@ class _StatisticsPieChartState extends State<StatisticsPieChart> {
     return AspectRatio(
       aspectRatio: 1.8,
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         children: [
           Expanded(
             child: PieChart(
@@ -81,36 +81,39 @@ class _StatisticsPieChartState extends State<StatisticsPieChart> {
               ),
             ),
           ),
-          Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const <Widget>[
-              Indicator(
-                color: Colors.green,
-                text: '已报到',
-                isSquare: true,
-              ),
-              SizedBox(
-                height: 4,
-              ),
-              Indicator(
-                color: Colors.red,
-                text: '未报到',
-                isSquare: true,
-              ),
-              SizedBox(
-                height: 4,
-              ),
-              Indicator(
-                color: Colors.yellow,
-                text: '报道中',
-                isSquare: true,
-              ),
-              SizedBox(
-                height: 18,
-              ),
-            ],
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const <Widget>[
+                Indicator(
+                  color: Colors.green,
+                  text: '已报到',
+                  isSquare: true,
+                ),
+                SizedBox(
+                  height: 4,
+                ),
+                Indicator(
+                  color: Colors.red,
+                  text: '未报到',
+                  isSquare: true,
+                ),
+                SizedBox(
+                  height: 4,
+                ),
+                Indicator(
+                  color: Colors.yellow,
+                  text: '报道中',
+                  isSquare: true,
+                ),
+                SizedBox(
+                  height: 18,
+                ),
+              ],
+            ),
           ),
           const SizedBox(
             width: 28,

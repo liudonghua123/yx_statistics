@@ -16,6 +16,8 @@ class _DetailsPageState extends State<DetailsPage> {
   bool loading = true;
   var statisticsDetail;
   List<Map<String, dynamic>> data = [];
+  String filterText = '';
+
   @override
   void initState() {
     super.initState();
@@ -50,18 +52,20 @@ class _DetailsPageState extends State<DetailsPage> {
   }
 
   maskSfzh(String sfzh) =>
-      sfzh == null || sfzh.length < 18 ? '' : '${sfzh.substring(0, 6)}********${sfzh.substring(15)}';
+      sfzh == null || sfzh.length < 18 ? '' : '${sfzh.substring(0, 6)}********${sfzh.substring(14)}';
 
   @override
   Widget build(BuildContext context) {
     var pczj = widget.pczj;
     var dwdm = widget.dwdm;
+    var filteredData =
+        filterText != '' ? data.where((item) => (item["xsxx"].xm as String).contains(filterText)).toList() : data;
     return Scaffold(
       appBar: AppBar(
         title: Text('迎新数据统详情'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(DEFAULT_MARGIN / 2),
+        padding: const EdgeInsets.all(DEFAULT_MARGIN),
         child: loading
             ? Center(child: CircularProgressIndicator())
             : SingleChildScrollView(
@@ -74,26 +78,38 @@ class _DetailsPageState extends State<DetailsPage> {
                       style: defaultTitleTextStyle,
                       overflow: TextOverflow.ellipsis,
                     ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: TextField(
+                        decoration: InputDecoration(prefixIcon: Icon(Icons.search), hintText: '请输入姓名关键词搜索'),
+                        onChanged: (text) {
+                          setState(() {
+                            filterText = text.trim();
+                          });
+                        },
+                      ),
+                    ),
                     SizedBox(height: DEFAULT_MARGIN),
-                    ...data.toList().asMap().entries.map((entry) {
+                    ...filteredData.toList().asMap().entries.map((entry) {
                       var index = entry.key;
                       var item = entry.value;
-                      return Padding(
-                        padding: const EdgeInsets.all(DEFAULT_MARGIN),
-                        child: Card(
-                          color: item["hj"].hjzzzt == 'p' ? Colors.green : Colors.red,
-                          elevation: 5.0,
-                          child: ListTile(
-                            title: Text('${item["xsxx"].xm} ${item["xsxx"].pyfsdm ?? ''}'),
-                            subtitle: Text('${maskSfzh(item["xsxx"].sfzh)} ${item["xsxx"].xk2 ?? ''}'),
-                            onTap: () async {
-                              if (item["xsxx"].xk2 != null) {
-                                var url = 'tel:${item["xsxx"].xk2}';
-                                if (await canLaunch(url)) {
-                                  await launch(url);
-                                }
+                      return Card(
+                        color: item["hj"].hjzzzt == 'p' ? Colors.green : Colors.red,
+                        elevation: 5.0,
+                        child: ListTile(
+                          title: Text('${item["xsxx"].xm} ${item["xsxx"].pyfsdm ?? ''}'),
+                          subtitle: Text('${maskSfzh(item["xsxx"].sfzh)} ${item["xsxx"].xk2 ?? ''}'),
+                          onTap: () async {
+                            if (item["xsxx"].xk2 != null) {
+                              var url = 'tel:${item["xsxx"].xk2}';
+                              if (await canLaunch(url)) {
+                                await launch(url);
                               }
-                            },
+                            }
+                          },
+                          trailing: Icon(Icons.arrow_right),
+                          leading: CircleAvatar(
+                            child: Icon(Icons.people),
                           ),
                         ),
                       );
