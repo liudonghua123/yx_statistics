@@ -1,0 +1,6 @@
+# production environment configurations
+production:
+  endpoint: http://statistics.ynu.edu.cn/graphql
+# debug environment configurations
+debug:
+  endpoint: http://localhost:3000/graphql

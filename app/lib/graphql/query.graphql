@@ -1,0 +1,123 @@
+query getStatistics($pczjs: [String]) {
+  getStatistics(pczjs: $pczjs) {
+    total
+    reportedCount
+    notReportedCount
+    reportingCount
+  }
+}
+
+query getStatisticsDetailsByDW($pczj: String) {
+  getStatisticsDetailsByDW(pczj: $pczj) {
+    total
+    reportedCount
+    notReportedCount
+    reportingCount
+    dwdm
+    dw {
+      dwmc
+      dwdm
+    }
+    xsxx {
+      xszj
+      xm
+      sfzh
+      xzqhdm
+      pyfsdm
+      xk2
+    }
+  }
+}
+
+query getStatisticsDetailsBySingleDW($pczj: String, $dwdm: String) {
+  getStatisticsDetailsBySingleDW(pczj: $pczj, dwdm: $dwdm) {
+    total
+    reportedCount
+    notReportedCount
+    reportingCount
+    dwdm
+    dw {
+      dwmc
+      dwdm
+    }
+    xsxx {
+      xszj
+      xm
+      sfzh
+      xzqhdm
+      pyfsdm
+      xk2
+    }
+    hj {
+      xszj
+      hj1
+      hj2
+      hj3
+      hj4
+      hj5
+      hj6
+      hj7
+      hj8
+      hj9
+      hjzzzt
+    }
+  }
+}
+  
+query getStatisticsDetailsByZY($pczj: String) {
+  getStatisticsDetailsByZY(pczj: $pczj) {
+    total
+    reportedCount
+    notReportedCount
+    reportingCount
+    zydm
+    zy {
+      zydm
+      zymc
+    }
+    xsxx {
+      xszj
+      xm
+      sfzh
+      xzqhdm
+      pyfsdm
+      xk2
+    }
+  }
+}
+
+  
+query getStatisticsDetailsBySingleZY($pczj: String, $zydm: String) {
+  getStatisticsDetailsBySingleZY(pczj: $pczj, zydm: $zydm) {
+    total
+    reportedCount
+    notReportedCount
+    reportingCount
+    zydm
+    zy {
+      zydm
+      zymc
+    }
+    xsxx {
+      xszj
+      xm
+      sfzh
+      xzqhdm
+      pyfsdm
+      xk2
+    }
+    hj {
+      xszj
+      hj1
+      hj2
+      hj3
+      hj4
+      hj5
+      hj6
+      hj7
+      hj8
+      hj9
+      hjzzzt
+    }
+  }
+}
