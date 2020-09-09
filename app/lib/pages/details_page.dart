@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:yx_statistics_app/constants.dart';
 import 'package:yx_statistics_app/graphql/graphql_schema.graphql.dart';
@@ -54,6 +55,8 @@ class _DetailsPageState extends State<DetailsPage> {
   maskSfzh(String sfzh) =>
       sfzh == null || sfzh.length < 18 ? '' : '${sfzh.substring(0, 6)}********${sfzh.substring(14)}';
 
+  isFemale(String sfzh) => sfzh == null || sfzh.length < 18 ? false : int.parse(sfzh.substring(16, 17)) % 2 == 0;
+
   @override
   Widget build(BuildContext context) {
     var pczj = widget.pczj;
@@ -93,6 +96,7 @@ class _DetailsPageState extends State<DetailsPage> {
                     ...filteredData.toList().asMap().entries.map((entry) {
                       var index = entry.key;
                       var item = entry.value;
+                      var female = isFemale(item["xsxx"].sfzh);
                       return Card(
                         color: item["hj"].hjzzzt == 'p' ? Colors.green : Colors.red,
                         elevation: 5.0,
@@ -109,7 +113,7 @@ class _DetailsPageState extends State<DetailsPage> {
                           },
                           trailing: Icon(Icons.arrow_right),
                           leading: CircleAvatar(
-                            child: Icon(Icons.people),
+                            child: female ? FaIcon(FontAwesomeIcons.female) : FaIcon(FontAwesomeIcons.male),
                           ),
                         ),
                       );

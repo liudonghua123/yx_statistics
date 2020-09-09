@@ -12,3 +12,14 @@ const defaultTitleTextStyle = TextStyle(fontSize: 24, fontWeight: FontWeight.bol
 
 const defaultDropDownTitleTextStyle = TextStyle(fontSize: 20, color: Colors.black45);
 
+const homeTileTitleStyle = TextStyle(
+  fontSize: 20,
+  fontStyle: FontStyle.italic,
+  // shadows: [
+  //   Shadow(
+  //     blurRadius: 5.0,
+  //     color: Colors.blue,
+  //     offset: Offset(3.0, 3.0),
+  //   ),
+  // ],
+);

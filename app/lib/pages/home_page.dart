@@ -16,6 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool loading = true;
   List<GetStatistics$Query$Statistics> statistics;
+  var tiletTtle = ['2020级本科生', '2020级研究生生', '2020级博士生'];
 
   @override
   void initState() {
@@ -36,7 +37,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var contentTextStyle = TextStyle(fontSize: 18);
+    var contentTextStyle = TextStyle(fontSize: 16);
     return Scaffold(
       appBar: AppBar(
         title: Text('迎新数据统计'),
@@ -50,52 +51,65 @@ class _HomePageState extends State<HomePage> {
                   children: statistics.asMap().entries.map((entry) {
                     var index = entry.key;
                     var item = entry.value;
-                    return Container(
-                      height: 150,
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.symmetric(vertical: DEFAULT_MARGIN),
-                      child: Card(
-                        color: Colors.white,
-                        child: Row(
-                          children: [
-                            StatisticsPieChart(item),
-                            SizedBox(width: DEFAULT_MARGIN),
-                            Expanded(
-                              child: InkWell(
-                                onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                                    return SummaryPage(pczj: defaultPczjs[index]);
-                                  }));
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      '总人数: ${item.total}',
-                                      style: contentTextStyle,
-                                    ),
-                                    Text(
-                                      '已报到人数: ${item.reportedCount}',
-                                      style: contentTextStyle,
-                                    ),
-                                    Text(
-                                      '未报到人数: ${item.notReportedCount}',
-                                      style: contentTextStyle,
-                                    ),
-                                    Text(
-                                      '报到中人数: ${item.reportingCount}',
-                                      style: contentTextStyle,
-                                    ),
-                                    Text(
-                                      '报到率: ${(item.reportedCount / item.total * 100).toStringAsFixed(2)}%',
-                                      style: contentTextStyle,
-                                    ),
-                                  ],
-                                ),
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return SummaryPage(pczj: defaultPczjs[index]);
+                            },
+                          ),
+                        );
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width,
+                        margin: EdgeInsets.symmetric(vertical: DEFAULT_MARGIN),
+                        child: Card(
+                          elevation: 5,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(DEFAULT_MARGIN / 2),
+                                child: Text(tiletTtle[index], style: homeTileTitleStyle),
                               ),
-                            ),
-                          ],
+                              Row(
+                                children: [
+                                  StatisticsPieChart(item),
+                                  SizedBox(width: DEFAULT_MARGIN),
+                                  Expanded(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          '总人数: ${item.total}',
+                                          style: contentTextStyle,
+                                        ),
+                                        Text(
+                                          '已报到人数: ${item.reportedCount}',
+                                          style: contentTextStyle,
+                                        ),
+                                        Text(
+                                          '未报到人数: ${item.notReportedCount}',
+                                          style: contentTextStyle,
+                                        ),
+                                        Text(
+                                          '报到中人数: ${item.reportingCount}',
+                                          style: contentTextStyle,
+                                        ),
+                                        Text(
+                                          '报到率: ${(item.reportedCount / item.total * 100).toStringAsFixed(2)}%',
+                                          style: contentTextStyle,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     );

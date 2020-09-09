@@ -15,8 +15,8 @@ class _StatisticsPieChartState extends State<StatisticsPieChart> {
 
   showSection() {
     var titleStyle = TextStyle(fontSize: 12, color: Colors.white);
-    var normalRadius = 50.0;
-    var selectedRadius = 60.0;
+    var normalRadius = 40.0;
+    var selectedRadius = 50.0;
     var item = widget.item;
     var titlePositionPercentageOffset = 0.5;
     var showPercentageThreshold = 0.03;
@@ -56,69 +56,72 @@ class _StatisticsPieChartState extends State<StatisticsPieChart> {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1.5,
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Expanded(
-            child: PieChart(
-              PieChartData(
-                sections: showSection(),
-                pieTouchData: PieTouchData(touchCallback: (pieTouchResponse) {
-                  setState(() {
-                    if (pieTouchResponse.touchInput is FlLongPressEnd || pieTouchResponse.touchInput is FlPanEnd) {
-                      touchedIndex = -1;
-                    } else {
-                      touchedIndex = pieTouchResponse.touchedSectionIndex;
-                    }
-                  });
-                }),
-                borderData: FlBorderData(
-                  show: false,
+    return Container(
+      height: 150,
+      child: AspectRatio(
+        aspectRatio: 1.5,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Expanded(
+              child: PieChart(
+                PieChartData(
+                  sections: showSection(),
+                  pieTouchData: PieTouchData(touchCallback: (pieTouchResponse) {
+                    setState(() {
+                      if (pieTouchResponse.touchInput is FlLongPressEnd || pieTouchResponse.touchInput is FlPanEnd) {
+                        touchedIndex = -1;
+                      } else {
+                        touchedIndex = pieTouchResponse.touchedSectionIndex;
+                      }
+                    });
+                  }),
+                  borderData: FlBorderData(
+                    show: false,
+                  ),
+                  centerSpaceRadius: 10,
                 ),
-                centerSpaceRadius: 10,
               ),
             ),
-          ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const <Widget>[
-                Indicator(
-                  color: Colors.green,
-                  text: '已报到',
-                  isSquare: true,
-                ),
-                SizedBox(
-                  height: 4,
-                ),
-                Indicator(
-                  color: Colors.red,
-                  text: '未报到',
-                  isSquare: true,
-                ),
-                SizedBox(
-                  height: 4,
-                ),
-                Indicator(
-                  color: Colors.yellow,
-                  text: '报道中',
-                  isSquare: true,
-                ),
-                SizedBox(
-                  height: 18,
-                ),
-              ],
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const <Widget>[
+                  Indicator(
+                    color: Colors.green,
+                    text: '已报到',
+                    isSquare: true,
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                  Indicator(
+                    color: Colors.red,
+                    text: '未报到',
+                    isSquare: true,
+                  ),
+                  SizedBox(
+                    height: 4,
+                  ),
+                  Indicator(
+                    color: Colors.yellow,
+                    text: '报道中',
+                    isSquare: true,
+                  ),
+                  SizedBox(
+                    height: 18,
+                  ),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(
-            width: 28,
-          ),
-        ],
+            const SizedBox(
+              width: 28,
+            ),
+          ],
+        ),
       ),
     );
   }

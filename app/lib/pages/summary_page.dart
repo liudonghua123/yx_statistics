@@ -187,17 +187,18 @@ class _SummaryPageState extends State<SummaryPage> {
                           style: defaultDropDownTitleTextStyle,
                         ),
                         SizedBox(width: 2 * DEFAULT_MARGIN),
-                        Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(prefixIcon: Icon(Icons.search), hintText: '请输入学院或单位关键词搜索'),
-                            onChanged: (text) {
-                              setState(() {
-                                filterText = text.trim();
-                              });
-                            },
-                          ),
-                        ),
                       ],
+                    ),
+                    Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: TextField(
+                        decoration: InputDecoration(prefixIcon: Icon(Icons.search), hintText: '请输入学院或单位关键词搜索'),
+                        onChanged: (text) {
+                          setState(() {
+                            filterText = text.trim();
+                          });
+                        },
+                      ),
                     ),
                     ...mainContent,
                   ],
