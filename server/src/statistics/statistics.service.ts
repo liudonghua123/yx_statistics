@@ -33,7 +33,14 @@ export class StatisticsService {
     this.logger.log('do getXsxx')
     const xsxxMap: Map<string, XSXX[]> = new Map()
     for (const pczj of pczjs) {
-      const xsxxs = await XSXX.find({ PCZJ: pczj })
+      // 根据dwdm、zydm进行排序
+      const xsxxs = await XSXX.find({
+        where: { PCZJ: pczj },
+        order: {
+          DWDM: "ASC",
+          ZYDM: "ASC",
+        }
+      });
       xsxxMap.set(pczj, xsxxs);
     }
     return xsxxMap;
