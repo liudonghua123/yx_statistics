@@ -75,6 +75,12 @@ type XSXXInfo {
   dwdm: String
   "专业代码"
   zydm: String
+  "地址"
+  xzqhdm: String
+  "考生类型"
+  pyfsdm: String
+  "联系电话"
+  xk2: String
   "单位信息"
   dw: DWInfo
   "专业信息"

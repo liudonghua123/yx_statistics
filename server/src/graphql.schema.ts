@@ -46,6 +46,9 @@ export class XSXXInfo {
     pczj?: string;
     dwdm?: string;
     zydm?: string;
+    xzqhdm?: string;
+    pyfsdm?: string;
+    xk2?: string;
     dw?: DWInfo;
     zy?: ZYInfo;
 }

@@ -63,7 +63,7 @@ export class StatisticsService {
     return zyMap;
   }
 
-  async getStatistics(pczjs: string[]) {
+  async getStatistics(pczjs: string[] = defaultPczjs) {
     this.logger.log('do getStatistics services')
     const statistics: Statistics[] = []
     for (const pczj of pczjs) {
@@ -219,6 +219,9 @@ export class StatisticsService {
       xsxxInfo.pczj = pczj
       xsxxInfo.dwdm = item.DWDM
       xsxxInfo.zydm = item.ZYDM
+      xsxxInfo.xk2 = item.XK2
+      xsxxInfo.xzqhdm = item.XZQHDM
+      xsxxInfo.pyfsdm = item.PYFSDM
       return xsxxInfo
     })
     return xsxxInfos
