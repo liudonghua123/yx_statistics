@@ -9,3 +9,5 @@ temp/
 ormconfig.json
 .tomg-config
 notes.txt
+
+public/

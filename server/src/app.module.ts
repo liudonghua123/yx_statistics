@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { StatisticsModule } from './statistics/statistics.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
   imports: [
@@ -16,6 +17,9 @@ import { join } from 'path';
         path: join(process.cwd(), 'src/graphql.schema.ts'),
         outputAs: 'class',
       },
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'public')
     }),
   ],
   controllers: [AppController],
