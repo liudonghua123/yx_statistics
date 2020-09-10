@@ -210,6 +210,15 @@ export class StatisticsService {
     return zyInfo;
   }
 
+  maskIdNum(idNum: string):string {
+    if(!idNum || idNum.length < 18) {
+      return idNum;
+    }
+    const idNumArray = idNum.split('');
+    idNumArray.splice(6,8,'********');
+    return idNumArray.join('');
+  }
+
   async findXSXXInfo(pczj: string, dwdm: string, zydm: string) {
     let xsxxs = this.xsxxs.get(pczj)
     if (dwdm != null) {
@@ -222,7 +231,7 @@ export class StatisticsService {
       const xsxxInfo = new XSXXInfo()
       xsxxInfo.xszj = item.XSZJ
       xsxxInfo.xm = item.XM
-      xsxxInfo.sfzh = item.SFZH
+      xsxxInfo.sfzh = this.maskIdNum(item.SFZH)
       xsxxInfo.pczj = pczj
       xsxxInfo.dwdm = item.DWDM
       xsxxInfo.zydm = item.ZYDM
