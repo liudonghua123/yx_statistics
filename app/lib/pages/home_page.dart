@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool loading = true;
   List<GetStatistics$Query$Statistics> statistics;
-  var tiletTtle = ['2020级本科生', '2020级研究生生', '2020级博士生'];
+  var tiletTtle = ['2020级本科生', '2020级研究生', '2020级博士生'];
 
   @override
   void initState() {

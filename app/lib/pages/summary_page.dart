@@ -102,12 +102,12 @@ class _SummaryPageState extends State<SummaryPage> {
                     overflow: TextOverflow.ellipsis,
                   ),
                   subtitle: getSubTitle(item),
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return DetailsPage(pczj: pczj, dwdm: item.dwdm);
-                    }));
-                  },
-                  trailing: Icon(Icons.arrow_right),
+                  // onTap: () {
+                  //   Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  //     return DetailsPage(pczj: pczj, dwdm: item.dwdm);
+                  //   }));
+                  // },
+                  // trailing: Icon(Icons.arrow_right),
                   leading: CircleAvatar(
                     child: Text(
                       '${(item.reportedCount / item.total * 100).toStringAsFixed(0)}%',
@@ -129,6 +129,7 @@ class _SummaryPageState extends State<SummaryPage> {
           return Card(
             elevation: 5,
             child: Stack(
+              alignment: Alignment.bottomLeft,
               children: [
                 progressIndicator(item),
                 ListTile(
@@ -137,12 +138,12 @@ class _SummaryPageState extends State<SummaryPage> {
                     overflow: TextOverflow.ellipsis,
                   ),
                   subtitle: getSubTitle(item),
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      return DetailsPage(pczj: pczj, zydm: item.zydm);
-                    }));
-                  },
-                  trailing: Icon(Icons.arrow_right),
+                  // onTap: () {
+                  //   Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  //     return DetailsPage(pczj: pczj, zydm: item.zydm);
+                  //   }));
+                  // },
+                  // trailing: Icon(Icons.arrow_right),
                   leading: CircleAvatar(
                     child: Text(
                       '${(item.reportedCount / item.total * 100).toStringAsFixed(0)}%',
