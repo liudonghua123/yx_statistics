@@ -111,9 +111,9 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   fonts:
-    - family: FZLanTingYuan
-      fonts:
-        - asset: assets/fonts/FZLanTYJW_Xian.ttf
+    # - family: FZLanTingYuan
+    #   fonts:
+    #     - asset: assets/fonts/FZLanTYJW_Xian.ttf
     - family: romantic_garden
       fonts:
         - asset: assets/fonts/romantic_garden.ttf
