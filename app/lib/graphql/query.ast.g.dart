@@ -74,98 +74,8 @@ const getStatisticsDetailsByDW = _i1.OperationDefinitionNode(
           ],
           directives: [],
           selectionSet: _i1.SelectionSetNode(selections: [
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'total'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'reportedCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'notReportedCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'reportingCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'dwdm'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'dw'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: _i1.SelectionSetNode(selections: [
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'dwmc'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'dwdm'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null)
-                ])),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'xsxx'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: _i1.SelectionSetNode(selections: [
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xszj'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xm'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'sfzh'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xzqhdm'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'pyfsdm'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xk2'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null)
-                ]))
+            _i1.FragmentSpreadNode(
+                name: _i1.NameNode(value: 'summaryContent'), directives: [])
           ]))
     ]));
 const getStatisticsDetailsBySingleDW = _i1.OperationDefinitionNode(
@@ -200,171 +110,8 @@ const getStatisticsDetailsBySingleDW = _i1.OperationDefinitionNode(
           ],
           directives: [],
           selectionSet: _i1.SelectionSetNode(selections: [
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'total'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'reportedCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'notReportedCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'reportingCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'dwdm'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'dw'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: _i1.SelectionSetNode(selections: [
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'dwmc'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'dwdm'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null)
-                ])),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'xsxx'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: _i1.SelectionSetNode(selections: [
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xszj'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xm'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'sfzh'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xzqhdm'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'pyfsdm'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xk2'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null)
-                ])),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'hj'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: _i1.SelectionSetNode(selections: [
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xszj'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj1'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj2'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj3'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj4'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj5'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj6'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj7'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj8'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj9'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hjzzzt'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null)
-                ]))
+            _i1.FragmentSpreadNode(
+                name: _i1.NameNode(value: 'detailedContent'), directives: [])
           ]))
     ]));
 const getStatisticsDetailsByZY = _i1.OperationDefinitionNode(
@@ -390,98 +137,8 @@ const getStatisticsDetailsByZY = _i1.OperationDefinitionNode(
           ],
           directives: [],
           selectionSet: _i1.SelectionSetNode(selections: [
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'total'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'reportedCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'notReportedCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'reportingCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'zydm'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'zy'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: _i1.SelectionSetNode(selections: [
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'zydm'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'zymc'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null)
-                ])),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'xsxx'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: _i1.SelectionSetNode(selections: [
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xszj'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xm'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'sfzh'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xzqhdm'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'pyfsdm'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xk2'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null)
-                ]))
+            _i1.FragmentSpreadNode(
+                name: _i1.NameNode(value: 'summaryContent'), directives: [])
           ]))
     ]));
 const getStatisticsDetailsBySingleZY = _i1.OperationDefinitionNode(
@@ -516,30 +173,78 @@ const getStatisticsDetailsBySingleZY = _i1.OperationDefinitionNode(
           ],
           directives: [],
           selectionSet: _i1.SelectionSetNode(selections: [
+            _i1.FragmentSpreadNode(
+                name: _i1.NameNode(value: 'detailedContent'), directives: [])
+          ]))
+    ]));
+const summaryContent = _i1.FragmentDefinitionNode(
+    name: _i1.NameNode(value: 'summaryContent'),
+    typeCondition: _i1.TypeConditionNode(
+        on: _i1.NamedTypeNode(
+            name: _i1.NameNode(value: 'StatisticsDetails'), isNonNull: false)),
+    directives: [],
+    selectionSet: _i1.SelectionSetNode(selections: [
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'total'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'reportedCount'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'notReportedCount'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'reportingCount'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'dwdm'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'zydm'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'dw'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: _i1.SelectionSetNode(selections: [
             _i1.FieldNode(
-                name: _i1.NameNode(value: 'total'),
+                name: _i1.NameNode(value: 'dwdm'),
                 alias: null,
                 arguments: [],
                 directives: [],
                 selectionSet: null),
             _i1.FieldNode(
-                name: _i1.NameNode(value: 'reportedCount'),
+                name: _i1.NameNode(value: 'dwmc'),
                 alias: null,
                 arguments: [],
                 directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'notReportedCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
-            _i1.FieldNode(
-                name: _i1.NameNode(value: 'reportingCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null),
+                selectionSet: null)
+          ])),
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'zy'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: _i1.SelectionSetNode(selections: [
             _i1.FieldNode(
                 name: _i1.NameNode(value: 'zydm'),
                 alias: null,
@@ -547,140 +252,209 @@ const getStatisticsDetailsBySingleZY = _i1.OperationDefinitionNode(
                 directives: [],
                 selectionSet: null),
             _i1.FieldNode(
-                name: _i1.NameNode(value: 'zy'),
+                name: _i1.NameNode(value: 'zymc'),
                 alias: null,
                 arguments: [],
                 directives: [],
-                selectionSet: _i1.SelectionSetNode(selections: [
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'zydm'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'zymc'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null)
-                ])),
+                selectionSet: null)
+          ]))
+    ]));
+const detailedContent = _i1.FragmentDefinitionNode(
+    name: _i1.NameNode(value: 'detailedContent'),
+    typeCondition: _i1.TypeConditionNode(
+        on: _i1.NamedTypeNode(
+            name: _i1.NameNode(value: 'StatisticsDetails'), isNonNull: false)),
+    directives: [],
+    selectionSet: _i1.SelectionSetNode(selections: [
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'total'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'reportedCount'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'notReportedCount'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'reportingCount'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'dwdm'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'zydm'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null),
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'dw'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: _i1.SelectionSetNode(selections: [
             _i1.FieldNode(
-                name: _i1.NameNode(value: 'xsxx'),
+                name: _i1.NameNode(value: 'dwdm'),
                 alias: null,
                 arguments: [],
                 directives: [],
-                selectionSet: _i1.SelectionSetNode(selections: [
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xszj'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xm'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'sfzh'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xzqhdm'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'pyfsdm'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xk2'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null)
-                ])),
+                selectionSet: null),
             _i1.FieldNode(
-                name: _i1.NameNode(value: 'hj'),
+                name: _i1.NameNode(value: 'dwmc'),
                 alias: null,
                 arguments: [],
                 directives: [],
-                selectionSet: _i1.SelectionSetNode(selections: [
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'xszj'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj1'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj2'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj3'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj4'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj5'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj6'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj7'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj8'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hj9'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null),
-                  _i1.FieldNode(
-                      name: _i1.NameNode(value: 'hjzzzt'),
-                      alias: null,
-                      arguments: [],
-                      directives: [],
-                      selectionSet: null)
-                ]))
+                selectionSet: null)
+          ])),
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'zy'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: _i1.SelectionSetNode(selections: [
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'zydm'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'zymc'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null)
+          ])),
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'xsxx'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: _i1.SelectionSetNode(selections: [
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'xszj'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'xm'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'sfzh'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'xzqhdm'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'pyfsdm'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'xk2'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null)
+          ])),
+      _i1.FieldNode(
+          name: _i1.NameNode(value: 'hj'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: _i1.SelectionSetNode(selections: [
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'xszj'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'hj1'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'hj2'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'hj3'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'hj4'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'hj5'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'hj6'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'hj7'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'hj8'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'hj9'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null),
+            _i1.FieldNode(
+                name: _i1.NameNode(value: 'hjzzzt'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null)
           ]))
     ]));
 const document = _i1.DocumentNode(definitions: [
@@ -688,5 +462,7 @@ const document = _i1.DocumentNode(definitions: [
   getStatisticsDetailsByDW,
   getStatisticsDetailsBySingleDW,
   getStatisticsDetailsByZY,
-  getStatisticsDetailsBySingleZY
+  getStatisticsDetailsBySingleZY,
+  summaryContent,
+  detailedContent
 ]);

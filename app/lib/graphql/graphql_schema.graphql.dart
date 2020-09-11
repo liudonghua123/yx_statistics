@@ -6,6 +6,29 @@ import 'package:equatable/equatable.dart';
 import 'package:gql/ast.dart';
 part 'graphql_schema.graphql.g.dart';
 
+mixin SummaryContentMixin {
+  int total;
+  int reportedCount;
+  int notReportedCount;
+  int reportingCount;
+  String dwdm;
+  String zydm;
+  SummaryContentMixin$DWInfo dw;
+  SummaryContentMixin$ZYInfo zy;
+}
+mixin DetailedContentMixin {
+  int total;
+  int reportedCount;
+  int notReportedCount;
+  int reportingCount;
+  String dwdm;
+  String zydm;
+  DetailedContentMixin$DWInfo dw;
+  DetailedContentMixin$ZYInfo zy;
+  List<DetailedContentMixin$XSXXInfo> xsxx;
+  List<DetailedContentMixin$HJInfo> hj;
+}
+
 @JsonSerializable(explicitToJson: true)
 class GetStatistics$Query$Statistics with EquatableMixin {
   GetStatistics$Query$Statistics();
@@ -42,32 +65,75 @@ class GetStatistics$Query with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class GetStatisticsDetailsByDW$Query$StatisticsDetails$DWInfo
-    with EquatableMixin {
-  GetStatisticsDetailsByDW$Query$StatisticsDetails$DWInfo();
+class SummaryContentMixin$DWInfo with EquatableMixin {
+  SummaryContentMixin$DWInfo();
 
-  factory GetStatisticsDetailsByDW$Query$StatisticsDetails$DWInfo.fromJson(
-          Map<String, dynamic> json) =>
-      _$GetStatisticsDetailsByDW$Query$StatisticsDetails$DWInfoFromJson(json);
-
-  String dwmc;
+  factory SummaryContentMixin$DWInfo.fromJson(Map<String, dynamic> json) =>
+      _$SummaryContentMixin$DWInfoFromJson(json);
 
   String dwdm;
 
+  String dwmc;
+
   @override
-  List<Object> get props => [dwmc, dwdm];
-  Map<String, dynamic> toJson() =>
-      _$GetStatisticsDetailsByDW$Query$StatisticsDetails$DWInfoToJson(this);
+  List<Object> get props => [dwdm, dwmc];
+  Map<String, dynamic> toJson() => _$SummaryContentMixin$DWInfoToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
-class GetStatisticsDetailsByDW$Query$StatisticsDetails$XSXXInfo
-    with EquatableMixin {
-  GetStatisticsDetailsByDW$Query$StatisticsDetails$XSXXInfo();
+class SummaryContentMixin$ZYInfo with EquatableMixin {
+  SummaryContentMixin$ZYInfo();
 
-  factory GetStatisticsDetailsByDW$Query$StatisticsDetails$XSXXInfo.fromJson(
-          Map<String, dynamic> json) =>
-      _$GetStatisticsDetailsByDW$Query$StatisticsDetails$XSXXInfoFromJson(json);
+  factory SummaryContentMixin$ZYInfo.fromJson(Map<String, dynamic> json) =>
+      _$SummaryContentMixin$ZYInfoFromJson(json);
+
+  String zydm;
+
+  String zymc;
+
+  @override
+  List<Object> get props => [zydm, zymc];
+  Map<String, dynamic> toJson() => _$SummaryContentMixin$ZYInfoToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DetailedContentMixin$DWInfo with EquatableMixin {
+  DetailedContentMixin$DWInfo();
+
+  factory DetailedContentMixin$DWInfo.fromJson(Map<String, dynamic> json) =>
+      _$DetailedContentMixin$DWInfoFromJson(json);
+
+  String dwdm;
+
+  String dwmc;
+
+  @override
+  List<Object> get props => [dwdm, dwmc];
+  Map<String, dynamic> toJson() => _$DetailedContentMixin$DWInfoToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DetailedContentMixin$ZYInfo with EquatableMixin {
+  DetailedContentMixin$ZYInfo();
+
+  factory DetailedContentMixin$ZYInfo.fromJson(Map<String, dynamic> json) =>
+      _$DetailedContentMixin$ZYInfoFromJson(json);
+
+  String zydm;
+
+  String zymc;
+
+  @override
+  List<Object> get props => [zydm, zymc];
+  Map<String, dynamic> toJson() => _$DetailedContentMixin$ZYInfoToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DetailedContentMixin$XSXXInfo with EquatableMixin {
+  DetailedContentMixin$XSXXInfo();
+
+  factory DetailedContentMixin$XSXXInfo.fromJson(Map<String, dynamic> json) =>
+      _$DetailedContentMixin$XSXXInfoFromJson(json);
 
   String xszj;
 
@@ -83,113 +149,15 @@ class GetStatisticsDetailsByDW$Query$StatisticsDetails$XSXXInfo
 
   @override
   List<Object> get props => [xszj, xm, sfzh, xzqhdm, pyfsdm, xk2];
-  Map<String, dynamic> toJson() =>
-      _$GetStatisticsDetailsByDW$Query$StatisticsDetails$XSXXInfoToJson(this);
+  Map<String, dynamic> toJson() => _$DetailedContentMixin$XSXXInfoToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
-class GetStatisticsDetailsByDW$Query$StatisticsDetails with EquatableMixin {
-  GetStatisticsDetailsByDW$Query$StatisticsDetails();
+class DetailedContentMixin$HJInfo with EquatableMixin {
+  DetailedContentMixin$HJInfo();
 
-  factory GetStatisticsDetailsByDW$Query$StatisticsDetails.fromJson(
-          Map<String, dynamic> json) =>
-      _$GetStatisticsDetailsByDW$Query$StatisticsDetailsFromJson(json);
-
-  int total;
-
-  int reportedCount;
-
-  int notReportedCount;
-
-  int reportingCount;
-
-  String dwdm;
-
-  GetStatisticsDetailsByDW$Query$StatisticsDetails$DWInfo dw;
-
-  List<GetStatisticsDetailsByDW$Query$StatisticsDetails$XSXXInfo> xsxx;
-
-  @override
-  List<Object> get props =>
-      [total, reportedCount, notReportedCount, reportingCount, dwdm, dw, xsxx];
-  Map<String, dynamic> toJson() =>
-      _$GetStatisticsDetailsByDW$Query$StatisticsDetailsToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class GetStatisticsDetailsByDW$Query with EquatableMixin {
-  GetStatisticsDetailsByDW$Query();
-
-  factory GetStatisticsDetailsByDW$Query.fromJson(Map<String, dynamic> json) =>
-      _$GetStatisticsDetailsByDW$QueryFromJson(json);
-
-  List<GetStatisticsDetailsByDW$Query$StatisticsDetails>
-      getStatisticsDetailsByDW;
-
-  @override
-  List<Object> get props => [getStatisticsDetailsByDW];
-  Map<String, dynamic> toJson() => _$GetStatisticsDetailsByDW$QueryToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$DWInfo
-    with EquatableMixin {
-  GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$DWInfo();
-
-  factory GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$DWInfo.fromJson(
-          Map<String, dynamic> json) =>
-      _$GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$DWInfoFromJson(
-          json);
-
-  String dwmc;
-
-  String dwdm;
-
-  @override
-  List<Object> get props => [dwmc, dwdm];
-  Map<String, dynamic> toJson() =>
-      _$GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$DWInfoToJson(
-          this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$XSXXInfo
-    with EquatableMixin {
-  GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$XSXXInfo();
-
-  factory GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$XSXXInfo.fromJson(
-          Map<String, dynamic> json) =>
-      _$GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$XSXXInfoFromJson(
-          json);
-
-  String xszj;
-
-  String xm;
-
-  String sfzh;
-
-  String xzqhdm;
-
-  String pyfsdm;
-
-  String xk2;
-
-  @override
-  List<Object> get props => [xszj, xm, sfzh, xzqhdm, pyfsdm, xk2];
-  Map<String, dynamic> toJson() =>
-      _$GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$XSXXInfoToJson(
-          this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$HJInfo
-    with EquatableMixin {
-  GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$HJInfo();
-
-  factory GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$HJInfo.fromJson(
-          Map<String, dynamic> json) =>
-      _$GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$HJInfoFromJson(
-          json);
+  factory DetailedContentMixin$HJInfo.fromJson(Map<String, dynamic> json) =>
+      _$DetailedContentMixin$HJInfoFromJson(json);
 
   String xszj;
 
@@ -216,35 +184,17 @@ class GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$HJInfo
   @override
   List<Object> get props =>
       [xszj, hj1, hj2, hj3, hj4, hj5, hj6, hj7, hj8, hj9, hjzzzt];
-  Map<String, dynamic> toJson() =>
-      _$GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$HJInfoToJson(
-          this);
+  Map<String, dynamic> toJson() => _$DetailedContentMixin$HJInfoToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
-class GetStatisticsDetailsBySingleDW$Query$StatisticsDetails
-    with EquatableMixin {
-  GetStatisticsDetailsBySingleDW$Query$StatisticsDetails();
+class GetStatisticsDetailsByDW$Query$StatisticsDetails
+    with EquatableMixin, SummaryContentMixin {
+  GetStatisticsDetailsByDW$Query$StatisticsDetails();
 
-  factory GetStatisticsDetailsBySingleDW$Query$StatisticsDetails.fromJson(
+  factory GetStatisticsDetailsByDW$Query$StatisticsDetails.fromJson(
           Map<String, dynamic> json) =>
-      _$GetStatisticsDetailsBySingleDW$Query$StatisticsDetailsFromJson(json);
-
-  int total;
-
-  int reportedCount;
-
-  int notReportedCount;
-
-  int reportingCount;
-
-  String dwdm;
-
-  GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$DWInfo dw;
-
-  List<GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$XSXXInfo> xsxx;
-
-  List<GetStatisticsDetailsBySingleDW$Query$StatisticsDetails$HJInfo> hj;
+      _$GetStatisticsDetailsByDW$Query$StatisticsDetailsFromJson(json);
 
   @override
   List<Object> get props => [
@@ -253,7 +203,48 @@ class GetStatisticsDetailsBySingleDW$Query$StatisticsDetails
         notReportedCount,
         reportingCount,
         dwdm,
+        zydm,
         dw,
+        zy
+      ];
+  Map<String, dynamic> toJson() =>
+      _$GetStatisticsDetailsByDW$Query$StatisticsDetailsToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class GetStatisticsDetailsByDW$Query with EquatableMixin {
+  GetStatisticsDetailsByDW$Query();
+
+  factory GetStatisticsDetailsByDW$Query.fromJson(Map<String, dynamic> json) =>
+      _$GetStatisticsDetailsByDW$QueryFromJson(json);
+
+  List<GetStatisticsDetailsByDW$Query$StatisticsDetails>
+      getStatisticsDetailsByDW;
+
+  @override
+  List<Object> get props => [getStatisticsDetailsByDW];
+  Map<String, dynamic> toJson() => _$GetStatisticsDetailsByDW$QueryToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class GetStatisticsDetailsBySingleDW$Query$StatisticsDetails
+    with EquatableMixin, DetailedContentMixin {
+  GetStatisticsDetailsBySingleDW$Query$StatisticsDetails();
+
+  factory GetStatisticsDetailsBySingleDW$Query$StatisticsDetails.fromJson(
+          Map<String, dynamic> json) =>
+      _$GetStatisticsDetailsBySingleDW$Query$StatisticsDetailsFromJson(json);
+
+  @override
+  List<Object> get props => [
+        total,
+        reportedCount,
+        notReportedCount,
+        reportingCount,
+        dwdm,
+        zydm,
+        dw,
+        zy,
         xsxx,
         hj
       ];
@@ -279,76 +270,25 @@ class GetStatisticsDetailsBySingleDW$Query with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class GetStatisticsDetailsByZY$Query$StatisticsDetails$ZYInfo
-    with EquatableMixin {
-  GetStatisticsDetailsByZY$Query$StatisticsDetails$ZYInfo();
-
-  factory GetStatisticsDetailsByZY$Query$StatisticsDetails$ZYInfo.fromJson(
-          Map<String, dynamic> json) =>
-      _$GetStatisticsDetailsByZY$Query$StatisticsDetails$ZYInfoFromJson(json);
-
-  String zydm;
-
-  String zymc;
-
-  @override
-  List<Object> get props => [zydm, zymc];
-  Map<String, dynamic> toJson() =>
-      _$GetStatisticsDetailsByZY$Query$StatisticsDetails$ZYInfoToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class GetStatisticsDetailsByZY$Query$StatisticsDetails$XSXXInfo
-    with EquatableMixin {
-  GetStatisticsDetailsByZY$Query$StatisticsDetails$XSXXInfo();
-
-  factory GetStatisticsDetailsByZY$Query$StatisticsDetails$XSXXInfo.fromJson(
-          Map<String, dynamic> json) =>
-      _$GetStatisticsDetailsByZY$Query$StatisticsDetails$XSXXInfoFromJson(json);
-
-  String xszj;
-
-  String xm;
-
-  String sfzh;
-
-  String xzqhdm;
-
-  String pyfsdm;
-
-  String xk2;
-
-  @override
-  List<Object> get props => [xszj, xm, sfzh, xzqhdm, pyfsdm, xk2];
-  Map<String, dynamic> toJson() =>
-      _$GetStatisticsDetailsByZY$Query$StatisticsDetails$XSXXInfoToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class GetStatisticsDetailsByZY$Query$StatisticsDetails with EquatableMixin {
+class GetStatisticsDetailsByZY$Query$StatisticsDetails
+    with EquatableMixin, SummaryContentMixin {
   GetStatisticsDetailsByZY$Query$StatisticsDetails();
 
   factory GetStatisticsDetailsByZY$Query$StatisticsDetails.fromJson(
           Map<String, dynamic> json) =>
       _$GetStatisticsDetailsByZY$Query$StatisticsDetailsFromJson(json);
 
-  int total;
-
-  int reportedCount;
-
-  int notReportedCount;
-
-  int reportingCount;
-
-  String zydm;
-
-  GetStatisticsDetailsByZY$Query$StatisticsDetails$ZYInfo zy;
-
-  List<GetStatisticsDetailsByZY$Query$StatisticsDetails$XSXXInfo> xsxx;
-
   @override
-  List<Object> get props =>
-      [total, reportedCount, notReportedCount, reportingCount, zydm, zy, xsxx];
+  List<Object> get props => [
+        total,
+        reportedCount,
+        notReportedCount,
+        reportingCount,
+        dwdm,
+        zydm,
+        dw,
+        zy
+      ];
   Map<String, dynamic> toJson() =>
       _$GetStatisticsDetailsByZY$Query$StatisticsDetailsToJson(this);
 }
@@ -369,119 +309,13 @@ class GetStatisticsDetailsByZY$Query with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$ZYInfo
-    with EquatableMixin {
-  GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$ZYInfo();
-
-  factory GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$ZYInfo.fromJson(
-          Map<String, dynamic> json) =>
-      _$GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$ZYInfoFromJson(
-          json);
-
-  String zydm;
-
-  String zymc;
-
-  @override
-  List<Object> get props => [zydm, zymc];
-  Map<String, dynamic> toJson() =>
-      _$GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$ZYInfoToJson(
-          this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$XSXXInfo
-    with EquatableMixin {
-  GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$XSXXInfo();
-
-  factory GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$XSXXInfo.fromJson(
-          Map<String, dynamic> json) =>
-      _$GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$XSXXInfoFromJson(
-          json);
-
-  String xszj;
-
-  String xm;
-
-  String sfzh;
-
-  String xzqhdm;
-
-  String pyfsdm;
-
-  String xk2;
-
-  @override
-  List<Object> get props => [xszj, xm, sfzh, xzqhdm, pyfsdm, xk2];
-  Map<String, dynamic> toJson() =>
-      _$GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$XSXXInfoToJson(
-          this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$HJInfo
-    with EquatableMixin {
-  GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$HJInfo();
-
-  factory GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$HJInfo.fromJson(
-          Map<String, dynamic> json) =>
-      _$GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$HJInfoFromJson(
-          json);
-
-  String xszj;
-
-  String hj1;
-
-  String hj2;
-
-  String hj3;
-
-  String hj4;
-
-  String hj5;
-
-  String hj6;
-
-  String hj7;
-
-  String hj8;
-
-  String hj9;
-
-  String hjzzzt;
-
-  @override
-  List<Object> get props =>
-      [xszj, hj1, hj2, hj3, hj4, hj5, hj6, hj7, hj8, hj9, hjzzzt];
-  Map<String, dynamic> toJson() =>
-      _$GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$HJInfoToJson(
-          this);
-}
-
-@JsonSerializable(explicitToJson: true)
 class GetStatisticsDetailsBySingleZY$Query$StatisticsDetails
-    with EquatableMixin {
+    with EquatableMixin, DetailedContentMixin {
   GetStatisticsDetailsBySingleZY$Query$StatisticsDetails();
 
   factory GetStatisticsDetailsBySingleZY$Query$StatisticsDetails.fromJson(
           Map<String, dynamic> json) =>
       _$GetStatisticsDetailsBySingleZY$Query$StatisticsDetailsFromJson(json);
-
-  int total;
-
-  int reportedCount;
-
-  int notReportedCount;
-
-  int reportingCount;
-
-  String zydm;
-
-  GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$ZYInfo zy;
-
-  List<GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$XSXXInfo> xsxx;
-
-  List<GetStatisticsDetailsBySingleZY$Query$StatisticsDetails$HJInfo> hj;
 
   @override
   List<Object> get props => [
@@ -489,7 +323,9 @@ class GetStatisticsDetailsBySingleZY$Query$StatisticsDetails
         reportedCount,
         notReportedCount,
         reportingCount,
+        dwdm,
         zydm,
+        dw,
         zy,
         xsxx,
         hj
@@ -611,98 +447,8 @@ class GetStatisticsQuery
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                    name: NameNode(value: 'total'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dwdm'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dw'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'dwmc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'dwdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'xsxx'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                FragmentSpreadNode(
+                    name: NameNode(value: 'summaryContent'), directives: [])
               ]))
         ])),
     OperationDefinitionNode(
@@ -737,171 +483,8 @@ class GetStatisticsQuery
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                    name: NameNode(value: 'total'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dwdm'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dw'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'dwmc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'dwdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'xsxx'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'hj'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj1'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj3'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj4'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj5'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj6'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj7'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj8'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj9'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hjzzzt'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                FragmentSpreadNode(
+                    name: NameNode(value: 'detailedContent'), directives: [])
               ]))
         ])),
     OperationDefinitionNode(
@@ -927,98 +510,8 @@ class GetStatisticsQuery
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                    name: NameNode(value: 'total'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'zydm'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'zy'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'zydm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'zymc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'xsxx'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                FragmentSpreadNode(
+                    name: NameNode(value: 'summaryContent'), directives: [])
               ]))
         ])),
     OperationDefinitionNode(
@@ -1053,30 +546,78 @@ class GetStatisticsQuery
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
+                FragmentSpreadNode(
+                    name: NameNode(value: 'detailedContent'), directives: [])
+              ]))
+        ])),
+    FragmentDefinitionNode(
+        name: NameNode(value: 'summaryContent'),
+        typeCondition: TypeConditionNode(
+            on: NamedTypeNode(
+                name: NameNode(value: 'StatisticsDetails'), isNonNull: false)),
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+              name: NameNode(value: 'total'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'notReportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportingCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dwdm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'zydm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dw'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
                 FieldNode(
-                    name: NameNode(value: 'total'),
+                    name: NameNode(value: 'dwdm'),
                     alias: null,
                     arguments: [],
                     directives: [],
                     selectionSet: null),
                 FieldNode(
-                    name: NameNode(value: 'reportedCount'),
+                    name: NameNode(value: 'dwmc'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'zy'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
                 FieldNode(
                     name: NameNode(value: 'zydm'),
                     alias: null,
@@ -1084,140 +625,209 @@ class GetStatisticsQuery
                     directives: [],
                     selectionSet: null),
                 FieldNode(
-                    name: NameNode(value: 'zy'),
+                    name: NameNode(value: 'zymc'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'zydm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'zymc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
+                    selectionSet: null)
+              ]))
+        ])),
+    FragmentDefinitionNode(
+        name: NameNode(value: 'detailedContent'),
+        typeCondition: TypeConditionNode(
+            on: NamedTypeNode(
+                name: NameNode(value: 'StatisticsDetails'), isNonNull: false)),
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+              name: NameNode(value: 'total'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'notReportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportingCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dwdm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'zydm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dw'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
                 FieldNode(
-                    name: NameNode(value: 'xsxx'),
+                    name: NameNode(value: 'dwdm'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
+                    selectionSet: null),
                 FieldNode(
-                    name: NameNode(value: 'hj'),
+                    name: NameNode(value: 'dwmc'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj1'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj3'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj4'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj5'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj6'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj7'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj8'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj9'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hjzzzt'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'zy'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                    name: NameNode(value: 'zydm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'zymc'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'xsxx'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                    name: NameNode(value: 'xszj'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'xm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'sfzh'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'xzqhdm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'pyfsdm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'xk2'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'hj'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                    name: NameNode(value: 'xszj'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj1'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj2'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj3'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj4'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj5'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj6'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj7'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj8'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj9'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hjzzzt'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null)
               ]))
         ]))
   ]);
@@ -1334,98 +944,8 @@ class GetStatisticsDetailsByDWQuery extends GraphQLQuery<
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                    name: NameNode(value: 'total'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dwdm'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dw'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'dwmc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'dwdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'xsxx'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                FragmentSpreadNode(
+                    name: NameNode(value: 'summaryContent'), directives: [])
               ]))
         ])),
     OperationDefinitionNode(
@@ -1460,171 +980,8 @@ class GetStatisticsDetailsByDWQuery extends GraphQLQuery<
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                    name: NameNode(value: 'total'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dwdm'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dw'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'dwmc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'dwdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'xsxx'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'hj'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj1'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj3'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj4'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj5'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj6'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj7'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj8'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj9'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hjzzzt'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                FragmentSpreadNode(
+                    name: NameNode(value: 'detailedContent'), directives: [])
               ]))
         ])),
     OperationDefinitionNode(
@@ -1650,98 +1007,8 @@ class GetStatisticsDetailsByDWQuery extends GraphQLQuery<
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                    name: NameNode(value: 'total'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'zydm'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'zy'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'zydm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'zymc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'xsxx'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                FragmentSpreadNode(
+                    name: NameNode(value: 'summaryContent'), directives: [])
               ]))
         ])),
     OperationDefinitionNode(
@@ -1776,30 +1043,78 @@ class GetStatisticsDetailsByDWQuery extends GraphQLQuery<
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
+                FragmentSpreadNode(
+                    name: NameNode(value: 'detailedContent'), directives: [])
+              ]))
+        ])),
+    FragmentDefinitionNode(
+        name: NameNode(value: 'summaryContent'),
+        typeCondition: TypeConditionNode(
+            on: NamedTypeNode(
+                name: NameNode(value: 'StatisticsDetails'), isNonNull: false)),
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+              name: NameNode(value: 'total'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'notReportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportingCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dwdm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'zydm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dw'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
                 FieldNode(
-                    name: NameNode(value: 'total'),
+                    name: NameNode(value: 'dwdm'),
                     alias: null,
                     arguments: [],
                     directives: [],
                     selectionSet: null),
                 FieldNode(
-                    name: NameNode(value: 'reportedCount'),
+                    name: NameNode(value: 'dwmc'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'zy'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
                 FieldNode(
                     name: NameNode(value: 'zydm'),
                     alias: null,
@@ -1807,140 +1122,209 @@ class GetStatisticsDetailsByDWQuery extends GraphQLQuery<
                     directives: [],
                     selectionSet: null),
                 FieldNode(
-                    name: NameNode(value: 'zy'),
+                    name: NameNode(value: 'zymc'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'zydm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'zymc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
+                    selectionSet: null)
+              ]))
+        ])),
+    FragmentDefinitionNode(
+        name: NameNode(value: 'detailedContent'),
+        typeCondition: TypeConditionNode(
+            on: NamedTypeNode(
+                name: NameNode(value: 'StatisticsDetails'), isNonNull: false)),
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+              name: NameNode(value: 'total'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'notReportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportingCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dwdm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'zydm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dw'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
                 FieldNode(
-                    name: NameNode(value: 'xsxx'),
+                    name: NameNode(value: 'dwdm'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
+                    selectionSet: null),
                 FieldNode(
-                    name: NameNode(value: 'hj'),
+                    name: NameNode(value: 'dwmc'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj1'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj3'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj4'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj5'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj6'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj7'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj8'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj9'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hjzzzt'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'zy'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                    name: NameNode(value: 'zydm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'zymc'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'xsxx'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                    name: NameNode(value: 'xszj'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'xm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'sfzh'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'xzqhdm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'pyfsdm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'xk2'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'hj'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                    name: NameNode(value: 'xszj'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj1'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj2'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj3'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj4'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj5'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj6'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj7'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj8'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj9'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hjzzzt'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null)
               ]))
         ]))
   ]);
@@ -2060,98 +1444,8 @@ class GetStatisticsDetailsBySingleDWQuery extends GraphQLQuery<
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                    name: NameNode(value: 'total'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dwdm'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dw'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'dwmc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'dwdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'xsxx'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                FragmentSpreadNode(
+                    name: NameNode(value: 'summaryContent'), directives: [])
               ]))
         ])),
     OperationDefinitionNode(
@@ -2186,171 +1480,8 @@ class GetStatisticsDetailsBySingleDWQuery extends GraphQLQuery<
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                    name: NameNode(value: 'total'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dwdm'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dw'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'dwmc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'dwdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'xsxx'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'hj'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj1'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj3'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj4'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj5'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj6'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj7'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj8'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj9'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hjzzzt'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                FragmentSpreadNode(
+                    name: NameNode(value: 'detailedContent'), directives: [])
               ]))
         ])),
     OperationDefinitionNode(
@@ -2376,98 +1507,8 @@ class GetStatisticsDetailsBySingleDWQuery extends GraphQLQuery<
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                    name: NameNode(value: 'total'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'zydm'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'zy'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'zydm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'zymc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'xsxx'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                FragmentSpreadNode(
+                    name: NameNode(value: 'summaryContent'), directives: [])
               ]))
         ])),
     OperationDefinitionNode(
@@ -2502,30 +1543,78 @@ class GetStatisticsDetailsBySingleDWQuery extends GraphQLQuery<
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
+                FragmentSpreadNode(
+                    name: NameNode(value: 'detailedContent'), directives: [])
+              ]))
+        ])),
+    FragmentDefinitionNode(
+        name: NameNode(value: 'summaryContent'),
+        typeCondition: TypeConditionNode(
+            on: NamedTypeNode(
+                name: NameNode(value: 'StatisticsDetails'), isNonNull: false)),
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+              name: NameNode(value: 'total'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'notReportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportingCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dwdm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'zydm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dw'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
                 FieldNode(
-                    name: NameNode(value: 'total'),
+                    name: NameNode(value: 'dwdm'),
                     alias: null,
                     arguments: [],
                     directives: [],
                     selectionSet: null),
                 FieldNode(
-                    name: NameNode(value: 'reportedCount'),
+                    name: NameNode(value: 'dwmc'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'zy'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
                 FieldNode(
                     name: NameNode(value: 'zydm'),
                     alias: null,
@@ -2533,140 +1622,209 @@ class GetStatisticsDetailsBySingleDWQuery extends GraphQLQuery<
                     directives: [],
                     selectionSet: null),
                 FieldNode(
-                    name: NameNode(value: 'zy'),
+                    name: NameNode(value: 'zymc'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'zydm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'zymc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
+                    selectionSet: null)
+              ]))
+        ])),
+    FragmentDefinitionNode(
+        name: NameNode(value: 'detailedContent'),
+        typeCondition: TypeConditionNode(
+            on: NamedTypeNode(
+                name: NameNode(value: 'StatisticsDetails'), isNonNull: false)),
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+              name: NameNode(value: 'total'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'notReportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportingCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dwdm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'zydm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dw'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
                 FieldNode(
-                    name: NameNode(value: 'xsxx'),
+                    name: NameNode(value: 'dwdm'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
+                    selectionSet: null),
                 FieldNode(
-                    name: NameNode(value: 'hj'),
+                    name: NameNode(value: 'dwmc'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj1'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj3'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj4'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj5'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj6'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj7'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj8'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj9'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hjzzzt'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'zy'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                    name: NameNode(value: 'zydm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'zymc'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'xsxx'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                    name: NameNode(value: 'xszj'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'xm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'sfzh'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'xzqhdm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'pyfsdm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'xk2'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'hj'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                    name: NameNode(value: 'xszj'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj1'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj2'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj3'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj4'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj5'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj6'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj7'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj8'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj9'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hjzzzt'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null)
               ]))
         ]))
   ]);
@@ -2783,98 +1941,8 @@ class GetStatisticsDetailsByZYQuery extends GraphQLQuery<
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                    name: NameNode(value: 'total'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dwdm'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dw'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'dwmc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'dwdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'xsxx'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                FragmentSpreadNode(
+                    name: NameNode(value: 'summaryContent'), directives: [])
               ]))
         ])),
     OperationDefinitionNode(
@@ -2909,171 +1977,8 @@ class GetStatisticsDetailsByZYQuery extends GraphQLQuery<
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                    name: NameNode(value: 'total'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dwdm'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dw'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'dwmc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'dwdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'xsxx'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'hj'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj1'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj3'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj4'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj5'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj6'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj7'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj8'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj9'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hjzzzt'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                FragmentSpreadNode(
+                    name: NameNode(value: 'detailedContent'), directives: [])
               ]))
         ])),
     OperationDefinitionNode(
@@ -3099,98 +2004,8 @@ class GetStatisticsDetailsByZYQuery extends GraphQLQuery<
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                    name: NameNode(value: 'total'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'zydm'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'zy'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'zydm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'zymc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'xsxx'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                FragmentSpreadNode(
+                    name: NameNode(value: 'summaryContent'), directives: [])
               ]))
         ])),
     OperationDefinitionNode(
@@ -3225,30 +2040,78 @@ class GetStatisticsDetailsByZYQuery extends GraphQLQuery<
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
+                FragmentSpreadNode(
+                    name: NameNode(value: 'detailedContent'), directives: [])
+              ]))
+        ])),
+    FragmentDefinitionNode(
+        name: NameNode(value: 'summaryContent'),
+        typeCondition: TypeConditionNode(
+            on: NamedTypeNode(
+                name: NameNode(value: 'StatisticsDetails'), isNonNull: false)),
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+              name: NameNode(value: 'total'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'notReportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportingCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dwdm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'zydm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dw'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
                 FieldNode(
-                    name: NameNode(value: 'total'),
+                    name: NameNode(value: 'dwdm'),
                     alias: null,
                     arguments: [],
                     directives: [],
                     selectionSet: null),
                 FieldNode(
-                    name: NameNode(value: 'reportedCount'),
+                    name: NameNode(value: 'dwmc'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'zy'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
                 FieldNode(
                     name: NameNode(value: 'zydm'),
                     alias: null,
@@ -3256,140 +2119,209 @@ class GetStatisticsDetailsByZYQuery extends GraphQLQuery<
                     directives: [],
                     selectionSet: null),
                 FieldNode(
-                    name: NameNode(value: 'zy'),
+                    name: NameNode(value: 'zymc'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'zydm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'zymc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
+                    selectionSet: null)
+              ]))
+        ])),
+    FragmentDefinitionNode(
+        name: NameNode(value: 'detailedContent'),
+        typeCondition: TypeConditionNode(
+            on: NamedTypeNode(
+                name: NameNode(value: 'StatisticsDetails'), isNonNull: false)),
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+              name: NameNode(value: 'total'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'notReportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportingCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dwdm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'zydm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dw'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
                 FieldNode(
-                    name: NameNode(value: 'xsxx'),
+                    name: NameNode(value: 'dwdm'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
+                    selectionSet: null),
                 FieldNode(
-                    name: NameNode(value: 'hj'),
+                    name: NameNode(value: 'dwmc'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj1'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj3'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj4'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj5'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj6'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj7'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj8'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj9'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hjzzzt'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'zy'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                    name: NameNode(value: 'zydm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'zymc'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'xsxx'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                    name: NameNode(value: 'xszj'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'xm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'sfzh'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'xzqhdm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'pyfsdm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'xk2'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'hj'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                    name: NameNode(value: 'xszj'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj1'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj2'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj3'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj4'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj5'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj6'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj7'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj8'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj9'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hjzzzt'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null)
               ]))
         ]))
   ]);
@@ -3509,98 +2441,8 @@ class GetStatisticsDetailsBySingleZYQuery extends GraphQLQuery<
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                    name: NameNode(value: 'total'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dwdm'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dw'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'dwmc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'dwdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'xsxx'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                FragmentSpreadNode(
+                    name: NameNode(value: 'summaryContent'), directives: [])
               ]))
         ])),
     OperationDefinitionNode(
@@ -3635,171 +2477,8 @@ class GetStatisticsDetailsBySingleZYQuery extends GraphQLQuery<
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                    name: NameNode(value: 'total'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dwdm'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'dw'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'dwmc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'dwdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'xsxx'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'hj'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj1'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj3'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj4'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj5'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj6'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj7'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj8'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj9'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hjzzzt'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                FragmentSpreadNode(
+                    name: NameNode(value: 'detailedContent'), directives: [])
               ]))
         ])),
     OperationDefinitionNode(
@@ -3825,98 +2504,8 @@ class GetStatisticsDetailsBySingleZYQuery extends GraphQLQuery<
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
-                FieldNode(
-                    name: NameNode(value: 'total'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'zydm'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'zy'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'zydm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'zymc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
-                FieldNode(
-                    name: NameNode(value: 'xsxx'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                FragmentSpreadNode(
+                    name: NameNode(value: 'summaryContent'), directives: [])
               ]))
         ])),
     OperationDefinitionNode(
@@ -3951,30 +2540,78 @@ class GetStatisticsDetailsBySingleZYQuery extends GraphQLQuery<
               ],
               directives: [],
               selectionSet: SelectionSetNode(selections: [
+                FragmentSpreadNode(
+                    name: NameNode(value: 'detailedContent'), directives: [])
+              ]))
+        ])),
+    FragmentDefinitionNode(
+        name: NameNode(value: 'summaryContent'),
+        typeCondition: TypeConditionNode(
+            on: NamedTypeNode(
+                name: NameNode(value: 'StatisticsDetails'), isNonNull: false)),
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+              name: NameNode(value: 'total'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'notReportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportingCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dwdm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'zydm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dw'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
                 FieldNode(
-                    name: NameNode(value: 'total'),
+                    name: NameNode(value: 'dwdm'),
                     alias: null,
                     arguments: [],
                     directives: [],
                     selectionSet: null),
                 FieldNode(
-                    name: NameNode(value: 'reportedCount'),
+                    name: NameNode(value: 'dwmc'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'notReportedCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
-                FieldNode(
-                    name: NameNode(value: 'reportingCount'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null),
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'zy'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
                 FieldNode(
                     name: NameNode(value: 'zydm'),
                     alias: null,
@@ -3982,140 +2619,209 @@ class GetStatisticsDetailsBySingleZYQuery extends GraphQLQuery<
                     directives: [],
                     selectionSet: null),
                 FieldNode(
-                    name: NameNode(value: 'zy'),
+                    name: NameNode(value: 'zymc'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'zydm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'zymc'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
+                    selectionSet: null)
+              ]))
+        ])),
+    FragmentDefinitionNode(
+        name: NameNode(value: 'detailedContent'),
+        typeCondition: TypeConditionNode(
+            on: NamedTypeNode(
+                name: NameNode(value: 'StatisticsDetails'), isNonNull: false)),
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+              name: NameNode(value: 'total'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'notReportedCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'reportingCount'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dwdm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'zydm'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null),
+          FieldNode(
+              name: NameNode(value: 'dw'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
                 FieldNode(
-                    name: NameNode(value: 'xsxx'),
+                    name: NameNode(value: 'dwdm'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'sfzh'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xzqhdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'pyfsdm'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'xk2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ])),
+                    selectionSet: null),
                 FieldNode(
-                    name: NameNode(value: 'hj'),
+                    name: NameNode(value: 'dwmc'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: SelectionSetNode(selections: [
-                      FieldNode(
-                          name: NameNode(value: 'xszj'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj1'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj2'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj3'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj4'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj5'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj6'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj7'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj8'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hj9'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null),
-                      FieldNode(
-                          name: NameNode(value: 'hjzzzt'),
-                          alias: null,
-                          arguments: [],
-                          directives: [],
-                          selectionSet: null)
-                    ]))
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'zy'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                    name: NameNode(value: 'zydm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'zymc'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'xsxx'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                    name: NameNode(value: 'xszj'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'xm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'sfzh'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'xzqhdm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'pyfsdm'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'xk2'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null)
+              ])),
+          FieldNode(
+              name: NameNode(value: 'hj'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: SelectionSetNode(selections: [
+                FieldNode(
+                    name: NameNode(value: 'xszj'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj1'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj2'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj3'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj4'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj5'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj6'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj7'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj8'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hj9'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null),
+                FieldNode(
+                    name: NameNode(value: 'hjzzzt'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null)
               ]))
         ]))
   ]);

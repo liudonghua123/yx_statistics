@@ -9,115 +9,80 @@ query getStatistics($pczjs: [String]) {
 
 query getStatisticsDetailsByDW($pczj: String) {
   getStatisticsDetailsByDW(pczj: $pczj) {
-    total
-    reportedCount
-    notReportedCount
-    reportingCount
-    dwdm
-    dw {
-      dwmc
-      dwdm
-    }
-    xsxx {
-      xszj
-      xm
-      sfzh
-      xzqhdm
-      pyfsdm
-      xk2
-    }
+    ...summaryContent
   }
 }
 
 query getStatisticsDetailsBySingleDW($pczj: String, $dwdm: String) {
   getStatisticsDetailsBySingleDW(pczj: $pczj, dwdm: $dwdm) {
-    total
-    reportedCount
-    notReportedCount
-    reportingCount
-    dwdm
-    dw {
-      dwmc
-      dwdm
-    }
-    xsxx {
-      xszj
-      xm
-      sfzh
-      xzqhdm
-      pyfsdm
-      xk2
-    }
-    hj {
-      xszj
-      hj1
-      hj2
-      hj3
-      hj4
-      hj5
-      hj6
-      hj7
-      hj8
-      hj9
-      hjzzzt
-    }
+    ...detailedContent
   }
 }
   
 query getStatisticsDetailsByZY($pczj: String) {
   getStatisticsDetailsByZY(pczj: $pczj) {
-    total
-    reportedCount
-    notReportedCount
-    reportingCount
-    zydm
-    zy {
-      zydm
-      zymc
-    }
-    xsxx {
-      xszj
-      xm
-      sfzh
-      xzqhdm
-      pyfsdm
-      xk2
-    }
+    ...summaryContent
   }
 }
 
   
 query getStatisticsDetailsBySingleZY($pczj: String, $zydm: String) {
   getStatisticsDetailsBySingleZY(pczj: $pczj, zydm: $zydm) {
-    total
-    reportedCount
-    notReportedCount
-    reportingCount
+    ...detailedContent
+  }
+}
+
+fragment summaryContent on StatisticsDetails {
+  total
+  reportedCount
+  notReportedCount
+  reportingCount
+  dwdm
+  zydm
+  dw {
+    dwdm
+    dwmc
+  }
+  zy {
     zydm
-    zy {
-      zydm
-      zymc
-    }
-    xsxx {
-      xszj
-      xm
-      sfzh
-      xzqhdm
-      pyfsdm
-      xk2
-    }
-    hj {
-      xszj
-      hj1
-      hj2
-      hj3
-      hj4
-      hj5
-      hj6
-      hj7
-      hj8
-      hj9
-      hjzzzt
-    }
+    zymc
+  }
+}
+
+fragment detailedContent on StatisticsDetails {
+  total
+  reportedCount
+  notReportedCount
+  reportingCount
+  dwdm
+  zydm
+  dw {
+    dwdm
+    dwmc
+  }
+  zy {
+    zydm
+    zymc
+  }
+  xsxx {
+    xszj
+    xm
+    sfzh
+    xzqhdm
+    pyfsdm
+    xk2
+  }
+  hj {
+    xszj
+    hj1
+    hj2
+    hj3
+    hj4
+    hj5
+    hj6
+    hj7
+    hj8
+    hj9
+    hjzzzt
   }
 }
