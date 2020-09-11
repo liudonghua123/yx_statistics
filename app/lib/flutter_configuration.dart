@@ -4,6 +4,7 @@ import 'package:yaml_config/yaml_config.dart';
 
 class FlutterConfiguration extends YamlConfig {
   String endpoint;
+  bool enableDetailPage;
 
   @override
   void init() {
@@ -13,6 +14,7 @@ class FlutterConfiguration extends YamlConfig {
     }
     var environmentConfigs = get('$environment');
     endpoint = environmentConfigs['endpoint'];
+    enableDetailPage = environmentConfigs['enableDetailPage'];
     print('config parsed with result: ${this}');
   }
 
@@ -26,6 +28,6 @@ class FlutterConfiguration extends YamlConfig {
 
   @override
   String toString() {
-    return 'FlutterConfiguration{endpoint: $endpoint}';
+    return 'FlutterConfiguration{endpoint: $endpoint, enableDetailPage: $enableDetailPage}';
   }
 }

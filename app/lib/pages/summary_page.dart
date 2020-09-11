@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yx_statistics_app/constants.dart';
 import 'package:yx_statistics_app/graphql/graphql_schema.dart';
+import 'package:yx_statistics_app/main.dart';
 import 'package:yx_statistics_app/pages/details_page.dart';
 import 'package:yx_statistics_app/service.dart';
 
@@ -102,12 +103,14 @@ class _SummaryPageState extends State<SummaryPage> {
                     overflow: TextOverflow.ellipsis,
                   ),
                   subtitle: getSubTitle(item),
-                  // onTap: () {
-                  //   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  //     return DetailsPage(pczj: pczj, dwdm: item.dwdm);
-                  //   }));
-                  // },
-                  // trailing: Icon(Icons.arrow_right),
+                  onTap: config.enableDetailPage
+                      ? () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) {
+                            return DetailsPage(pczj: pczj, dwdm: item.dwdm);
+                          }));
+                        }
+                      : null,
+                  trailing: Icon(Icons.arrow_right),
                   leading: CircleAvatar(
                     child: Text(
                       '${(item.reportedCount / item.total * 100).toStringAsFixed(0)}%',
@@ -138,12 +141,14 @@ class _SummaryPageState extends State<SummaryPage> {
                     overflow: TextOverflow.ellipsis,
                   ),
                   subtitle: getSubTitle(item),
-                  // onTap: () {
-                  //   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  //     return DetailsPage(pczj: pczj, zydm: item.zydm);
-                  //   }));
-                  // },
-                  // trailing: Icon(Icons.arrow_right),
+                  onTap: config.enableDetailPage
+                      ? () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) {
+                            return DetailsPage(pczj: pczj, zydm: item.zydm);
+                          }));
+                        }
+                      : null,
+                  trailing: Icon(Icons.arrow_right),
                   leading: CircleAvatar(
                     child: Text(
                       '${(item.reportedCount / item.total * 100).toStringAsFixed(0)}%',
